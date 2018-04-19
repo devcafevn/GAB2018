@@ -40,6 +40,9 @@ $ az aks get-credentials --name kcluster --resource-group gab2018
 ```
 
 ## Bước 2 - Tạo ứng dụng
+```
+$ mkdir gab2018 && cd gab2018
+```
 ## Bước 3 - Deploy lên AKS
 ## Bước 4 - Sale
 ## Bước 5 - Monitor
