@@ -33,6 +33,6 @@ public static async Task Run(TimerInfo myTimer, TraceWriter log)
 ```bash
     ./ngrok http 7071 -host-header="localhost:7001"
 ```
-- Chay function va debug
+- Chạy function va debug
 
 ## Lab 3: Deployment
