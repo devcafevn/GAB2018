@@ -5,6 +5,9 @@
 ### Deploy, scale and monitor SimplCommerce on Azure
 https://github.com/devcafevn/GAB2018/blob/master/demos/deploy-simplcommere-azure.md
 
+### Working with Azure Functions
+https://github.com/devcafevn/GAB2018/blob/master/demos/azure-function-demo.md
+
 ### Xây dựng logic app với Computer Vision API
 https://github.com/devcafevn/GAB2018/blob/master/demos/azure-logicapp-lab.md
 
