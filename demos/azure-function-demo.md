@@ -1,4 +1,4 @@
-# Azure Function demo
+# Azure Function Lab
 ---
 ## Một số yêu cầu
 
@@ -11,7 +11,7 @@
 
 ## Lab 1: Tạo Azure function thông qua Azure portal
 
-- Viết function đầu tiên với http trigger, với tên helloAzureFuncHttpTrigger
+- Viết function đầu tiên với http trigger "helloAzureFuncHttpTrigger"
 - Viết timer function để gọi function "helloAzureFuncHttpTrigger"
 ```C#
 using System;
@@ -28,7 +28,7 @@ public static async Task Run(TimerInfo myTimer, TraceWriter log)
 
 ## Lab 2: Tạo webhook bằng Azure function bằng Visual Studio
 - Viết function với http trigger, với webhooktype = "genericJson"
-- Tạo 1 alert trong phấn "Monitoring" cua Azure portal
+- Tạo 1 alert trong phần "Monitor" cua Azure portal
 - Cấu hinh ngrok
 ```bash
     ./ngrok http 7071 -host-header="localhost:7001"
