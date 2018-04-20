@@ -32,7 +32,7 @@ Chờ khoảng 5 phút chúng ta sẽ có được một cluster với tên ```k
 Để kiểm tra cluster đã tạo xong chưa, dùng lệnh:
 
 ```
-$ az aks get list --output table
+$ az aks list --output table
 ```
 
 ### Kết nối đến cluster
@@ -95,8 +95,9 @@ ENTRYPOINT ["dotnet", "gab2018.dll"]
 Sau khi đã tạo Dockerfile, chạy tiếp ệnh bên dưới sẽ build image có với tên là **webapi**, và sau đó sẽ tạo một container trên image này bằng lệnh **docker run** bên dưới.
 
 ```
+$ dotnet publish -o publish
 $ docker build -t gab2018 .
-$ docker run --name gab2018 gab2018
+$ docker run --name gab2018 -p 80:80 gab2018
 ```
 
 ### Push image to Azure Container Registry
