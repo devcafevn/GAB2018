@@ -137,6 +137,36 @@ $ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 Bạn tạo file tên **webapi.yaml** ở thư mục gốc của ứng dụng với nội dung như sau:
 ```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: gab2018
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gab2018
+    spec:
+      containers:
+      - name: gab2018
+        image: kregistry.azurecr.io/gab2018
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gab2018
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: gab2018
+```
+Sau đó chúng ta sẽ deploy lên AKS với lệnh sau:
+```
 $ kubectl create -f gab2018.yaml
 ```
 Về cơ bản, AKS sẽ pull image từ image từ ACR để tạo container (chứa trong các pod) và sau đó sẽ expose ra các public ip / public port 8080 (do chúng ta đã mô tả trong file .yaml). Để liệt kê các services đã được tạo, dùng lệnh sau:
