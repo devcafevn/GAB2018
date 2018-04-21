@@ -180,6 +180,36 @@ Với địa chỉ public IP và public port, chúng ta có thể browse đến 
 ## Bước 4 - Scale
 Trong bài này sẽ không nói chi tiết về cơ chế hoạt động của **ReplicaSets**, **Services**, **Deployments**, ... mà giả sử rằng chúng ta đã biết cơ bản về nó.
 
+Giả sử thêm một Controller với tên file **ServersController.cs** như sau:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace gab2018.Controllers
+{
+    [Route("api/[controller]")]
+    public class ServersController : Controller
+    {
+        // GET api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { Dns.GetHostEntry(Dns.GetHostName()).AddressList[0].ToString() };
+        }
+    }
+}
+```
+Build lại image & push
+```bash
+$ docker build -t gab2018 .
+$ docker tag gab2018 kregistry.azurecr.io/gab2018
+$ docker push kregistry.azurecr.io/gab2018
+```
+
 Để scale một deployment, dùng lệnh sau:
 
 ```
